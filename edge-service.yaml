@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: edge-service
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: content-route
+              uri: ${CONTENT_SERVICE_URL:http://content-manager}
+              predicates:
+                - Path=/topics/**
+
+            - id: progress-route
+              uri: ${PROGRESS_SERVICE_URL:http://progress-manager}
+              predicates:
+                - Path=/progress/**
+
+server:
+  port: 8080
+  forward-headers-strategy: framework  
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG

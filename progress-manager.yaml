@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: progress-manager
+
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+
+content:
+  access:
+    url: ${CONTENT_ACCESS_URL:http://content-access:8080}
+
+progress:
+  access:
+    url: ${PROGRESS_ACCESS_URL:http://progress-access:8080}
+
+completion:
+  engine:
+    url: ${COMPLETION_ENGINE_URL:http://completion-engine:8080}
