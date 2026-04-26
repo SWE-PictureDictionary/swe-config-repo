@@ -1,8 +1,24 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: event-processor
+
   rabbitmq:
     host: rabbitmq
     port: 5672
     username: guest
     password: guest
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+
+progress:
+  access:
+    url: ${PROGRESS_ACCESS_URL:http://progress-access:8080}
+
+notifications:
+  channels: ${NOTIFICATIONS_CHANNELS:badge,email}
