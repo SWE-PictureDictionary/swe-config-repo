@@ -7,4 +7,4 @@ spring:
 
 content:
   access:
-    url: ${CONTENT_ACCESS_URL:http://content-access:8080}
+    url: ${CONTENT_ACCESS_URL:http://content-access}

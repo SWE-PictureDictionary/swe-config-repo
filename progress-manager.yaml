@@ -13,12 +13,14 @@ spring:
 
 content:
   access:
-    url: ${CONTENT_ACCESS_URL:http://content-access:8080}
+    url: ${CONTENT_ACCESS_URL:http://content-access}
+  manager:
+    url: ${CONTENT_MANAGER_URL:http://content-manager}
 
 progress:
   access:
-    url: ${PROGRESS_ACCESS_URL:http://progress-access:8080}
+    url: ${PROGRESS_ACCESS_URL:http://progress-access}
 
 completion:
   engine:
-    url: ${COMPLETION_ENGINE_URL:http://completion-engine:8080}
+    url: ${COMPLETION_ENGINE_URL:http://completion-engine}
