@@ -12,15 +12,33 @@ spring:
       server:
         webflux:
           routes:
-            - id: content-route
+            - id: content-route-root
+              uri: ${CONTENT_SERVICE_URL:http://content-manager}
+              predicates:
+                - Path=/topics
+              filters:
+                - SaveSession
+
+            - id: content-route-nested
               uri: ${CONTENT_SERVICE_URL:http://content-manager}
               predicates:
                 - Path=/topics/**
+              filters:
+                - SaveSession
 
-            - id: progress-route
+            - id: progress-route-root
+              uri: ${PROGRESS_SERVICE_URL:http://progress-manager}
+              predicates:
+                - Path=/progress
+              filters:
+                - SaveSession
+
+            - id: progress-route-nested
               uri: ${PROGRESS_SERVICE_URL:http://progress-manager}
               predicates:
                 - Path=/progress/**
+              filters:
+                - SaveSession
 
 server:
   port: 8080
